@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Connect Four Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        
+        <!-- Left Side: Control & Info Panel -->
+        <aside class="control-panel">
+            <div class="brand-header">
+                <h1>Connect <span class="four-text">Four</span></h1>
+                <p class="subtitle">Arcade Edition v2.0</p>
+            </div>
+
+            <div class="status-box">
+                <span class="label">Match Status</span>
+                <h2 id="winner">Player 1's Turn</h2>
+            </div>
+
+            <!-- Configuration Options -->
+            <div class="panel-section">
+                <h3>Settings</h3>
+                <div class="setting-item">
+                    <label for="theme-select">Visual Skin</label>
+                    <select id="theme-select" onchange="changeTheme(this.value)">
+                        <option value="cyber">Cyber Arcade</option>
+                        <option value="sunset">Neon Sunset</option>
+                        <option value="matrix">Emerald Matrix</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Rules Embedded directly inside the panel -->
+            <div class="panel-section rules-section">
+                <h3>How To Play</h3>
+                <ol>
+                    <li>Take turns dropping tokens into columns.</li>
+                    <li>Pieces stack from the lowest row up.</li>
+                    <li>Connect <strong>4 in a row</strong> (horizontally, vertically, or diagonally) to win!</li>
+                </ol>
+            </div>
+
+            <!-- Reset Button sits prominently at the bottom of panel -->
+            <button id="reset-btn" onclick="resetGame()">Restart Match</button>
+        </aside>
+
+        <!-- Right Side: The Main Game Window -->
+        <main class="game-stage">
+            <div id="board"></div>
+        </main>
+
+    </div>
+    <!-- Win Celebration Modal Overlay -->
+    <div id="win-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="trophy-icon">🏆</div>
+            <h2 id="modal-winner-text">Player 1 Wins!</h2>
+            <p>What a brilliant match.</p>
+            <button id="modal-close-btn" onclick="closeWinModal()">Play Again</button>
+        </div>
+    </div>
+</body>
+</body>
+</html>
